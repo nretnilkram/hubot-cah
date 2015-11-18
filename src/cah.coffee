@@ -5,12 +5,12 @@
 #   None
 #
 # Configuration:
-#   None
+#   HUBOT_CAH_HEAR - Optional. If set, bot will respond to any line that begins with "black card" or "white card" without needing to address the bot directly.
 #
 # Commands:
-#   black card - Returns black card
-#   white card - Displays a white card
-#   white card n - Displays n white cards
+#   hubot black card - Returns black card
+#   hubot white card - Displays a white card
+#   hubot white card n - Displays n white cards
 #
 # Author:
 #   mlintern
@@ -2875,12 +2875,18 @@ black = [
 ]
 
 module.exports = (robot) ->
-  robot.hear /white card( \d+)?/i, (msg) ->
+  robot.respond /white card( \d+)?/i, (msg) ->
     count = if msg.match[1]? then parseInt(msg.match[1], 10) else 1
     msg.send msg.random white for i in [1..count]
 
-  robot.hear /turn down for (.*)/i, (msg) ->
-    msg.send msg.random white 
-
-  robot.hear /black card/i, (msg) ->
+  robot.respond /black card/i, (msg) ->
     msg.send msg.random black
+
+# pro feature, not added to docs since you can't conditionally document commands
+  if process.env.HUBOT_CAH_HEAR?
+    robot.hear /^white card( \d+)?/i, (msg) ->
+      count = if msg.match[1]? then parseInt(msg.match[1], 10) else 1
+      msg.send msg.random white for i in [1..count]
+
+    robot.hear /^black card/i, (msg) ->
+      msg.send msg.random black

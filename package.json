@@ -1,7 +1,7 @@
 {
   "name": "hubot-cah",
-  "description": "A hubot script that accepts thanks",
-  "version": "0.0.1",
+  "description": "A hubot script that plays a limited cards against humanity",
+  "version": "0.0.2",
   "author": "Nretnil Kram <signkram@gmail.com>",
   "license": "MIT",
   "keywords": [

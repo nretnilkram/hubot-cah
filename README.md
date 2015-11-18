@@ -16,6 +16,9 @@ Then add **hubot-cah** to your `external-scripts.json`:
 ["hubot-cah"]
 ```
 
+## Configuration
+Set environment variable `HUBOT_CAH_HEAR` to true if you want hubot to listen for commands instead of responding to them
+
 ## Sample Interaction
 
 ```
