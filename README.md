@@ -1,6 +1,6 @@
-# hubot-thank-you
+# hubot-cah
 
-A hubot script that accepts your thanks
+A hubot script that plays a limited version of cards against humanity
 
 See [`src/cah.coffee`](src/cah.coffee) for full documentation.
 
@@ -8,7 +8,7 @@ See [`src/cah.coffee`](src/cah.coffee) for full documentation.
 
 In hubot project repo, run:
 
-`npm install hubot-cah --save`
+`npm install https://github.com/nretnilkram/hubot-cah.git --save`
 
 Then add **hubot-cah** to your `external-scripts.json`:
 
@@ -19,6 +19,6 @@ Then add **hubot-cah** to your `external-scripts.json`:
 ## Sample Interaction
 
 ```
-user1>> hubot bcard
+user1>> hubot black card
 hubot>> I like _ with my icecream
 ```
