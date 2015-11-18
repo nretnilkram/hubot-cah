@@ -13,4 +13,6 @@ describe 'cah', ->
     require('../src/cah')(@robot)
 
   it 'registers a respond listener', ->
-    expect(@robot.respond).to.have.been.calledWith(/bcard/)
+    expect(@robot.respond).to.have.been.calledWith(/black card/)
+    expect(@robot.respond).to.have.been.calledWith(/white card/)
+    expect(@robot.respond).to.have.been.calledWith(/white card 2/)
