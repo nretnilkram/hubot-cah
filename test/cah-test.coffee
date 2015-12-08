@@ -4,15 +4,30 @@ chai.use require 'sinon-chai'
 
 expect = chai.expect
 
-describe 'cah', ->
-  beforeEach ->
-    @robot =
-      respond: sinon.spy()
-      hear: sinon.spy()
+describe 'hubot-cah', ->
+	beforeEach ->
+		@robot =
+			respond: sinon.spy()
+			hear: sinon.spy()
 
-    require('../src/cah')(@robot)
+		require('../src/cah')(@robot)
 
-  it 'registers a respond listener', ->
-    expect(@robot.respond).to.have.been.calledWith(/black card/)
-    expect(@robot.respond).to.have.been.calledWith(/white card/)
-    expect(@robot.respond).to.have.been.calledWith(/white card 2/)
+	it 'responds to "black card"', ->
+		expect(@robot.respond).to.have.been.calledWith sinon.match( (val) -> 
+			val.test /black card/
+		)
+
+	it 'responds to "white card"', ->
+		expect(@robot.respond).to.have.been.calledWith sinon.match( (val) -> 
+			val.test /white card/
+		)
+
+	it 'responds to "white card 2"', ->
+		expect(@robot.respond).to.have.been.calledWith sinon.match( (val) -> 
+			val.test /white card 2/
+		)
+
+	it 'does NOT responds to "blackcard"', ->
+		expect(@robot.respond).to.not.have.been.calledWith sinon.match( (val) -> 
+			val.test /blackcard/
+		)
