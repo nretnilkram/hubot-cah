@@ -1,7 +1,7 @@
 {
   "name": "hubot-cah",
   "description": "A hubot script that plays a limited cards against humanity",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "author": "Nretnil Kram <signkram@gmail.com>",
   "license": "MIT",
   "keywords": [
