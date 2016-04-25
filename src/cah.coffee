@@ -15,16 +15,18 @@
 # Author:
 #   nrentnilkram
 
-white = require './data/white_cards.json'
-black = require './data/black_cards.json'
+cards = require './data/cards.json'
 
 module.exports = (robot) ->
   robot.respond /white card( \d+)?/i, (msg) ->
     count = if msg.match[1]? then parseInt(msg.match[1], 10) else 1
-    msg.send msg.random white for i in [1..count]
+    for i in [1..count]
+      card = msg.random cards['whiteCards']
+      msg.send card['text']
 
   robot.respond /black card/i, (msg) ->
-    msg.send msg.random black
+    card = msg.random cards['blackCards']
+    msg.send card['text']
 
 # pro feature, not added to docs since you can't conditionally document commands
   if process.env.HUBOT_CAH_HEAR?
