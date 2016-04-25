@@ -1,5 +1,7 @@
 # hubot-cah
 
+Cards json generated at http://www.crhallberg.com/cah/json
+
 A hubot script that plays a limited version of cards against humanity
 
 See [`src/cah.coffee`](src/cah.coffee) for full documentation.
